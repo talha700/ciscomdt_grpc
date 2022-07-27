@@ -1,0 +1,13 @@
+telemetry ietf subscription 101
+  encoding encode-kvgpb
+  filter xpath /memory-ios-xe-oper:memory-statistics/memory-statistic
+  stream yang-push
+  update-policy periodic 6000
+  receiver ip address 192.168.100.242 57555 protocol grpc-tcp
+
+telemetry ietf subscription 102
+  encoding encode-kvgpb
+  filter xpath /interfaces-ios-xe-oper:interfaces/interface/statistics
+  stream yang-push
+  update-policy periodic 5000
+  receiver ip address 192.168.100.242 57555 protocol grpc-tcp

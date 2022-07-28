@@ -19,4 +19,37 @@ telemetry ietf subscription 103
   update-policy periodic 5000
   receiver ip address 192.168.100.242 57555 protocol grpc-tcp
 
-/process-cpu-ios-xe-oper:cpu-usage/cpu-utilization/cpu-usage-processes/cpu-usage-process
+telemetry ietf subscription 104
+ encoding encode-kvgpb
+ filter xpath /platform-ios-xe-oper:components
+ stream yang-push
+ update-policy periodic 5000
+ receiver ip address 192.168.100.242 57555 protocol grpc-tcp
+
+telemetry ietf subscription 105
+ encoding encode-kvgpb
+ filter xpath /cdp-ios-xe-oper:cdp-neighbor-details
+ stream yang-push
+ update-policy periodic 5000
+ receiver ip address 192.168.100.242 57555 protocol grpc-tcp
+
+telemetry ietf subscription 106
+ encoding encode-kvgpb
+ filter xpath /ios:native/version
+ stream yang-push
+ update-policy periodic 5000
+ receiver ip address 192.168.100.242 57555 protocol grpc-tcp
+
+telemetry ietf subscription 107
+ encoding encode-kvgpb
+ filter xpath /oc-sys:system/state/boot-time
+ stream yang-push
+ update-policy periodic 5000
+ receiver ip address 192.168.100.242 57555 protocol grpc-tcp
+
+telemetry ietf subscription 108
+ encoding encode-kvgpb
+ filter xpath /arp-ios-xe-oper:arp-data
+ stream yang-push
+ update-policy periodic 5000
+ receiver ip address 192.168.100.242 57555 protocol grpc-tcp

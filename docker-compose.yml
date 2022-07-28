@@ -22,7 +22,7 @@ services:
       - influxdb_data:/var/lib/influxdb
 
   grafana:
-    image: grafana/grafana:8.2.6
+    image: grafana/grafana:9.0.5
     depends_on:
       - influxdb
     env_file: configuration.env

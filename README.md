@@ -81,12 +81,13 @@ Repo includes a docker compose file to deploy the stack
 
 ## Dashboard Samples
 
+![Interfaces](./interfaces.jpg)
+
 ## Resources
 
 - [Cisco Programmability Configuration Guide](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/prog/configuration/1612/b_1612_programmability_cg/model_driven_telemetry.html)
 - [Network Programmability with YANG: The Structure of Network Automation with YANG, NETCONF, RESTCONF, and gNMI](https://www.amazon.com/Network-Programmability-YANG-Modeling-driven-Management/dp/0135180392)
 - [The limits of SNMP](https://blogs.cisco.com/sp/the-limits-of-snmp)
 - [YangModel Github Repo](https://github.com/YangModels/yang)
-- 
 
 

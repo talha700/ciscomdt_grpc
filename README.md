@@ -12,6 +12,25 @@ Two main pub/sub schemes are available:
 > **Note**
 > This repo only demonstrate gRPC Dial-out telemetry.
 
+## Issues with SNMP
+
+Well, for the past 3 decades SNMP has been doing a great job for network monitoring, built with simplicity in mind, but as our applications/services have become more & more network critical. As result, we try to poll our devices aggressively which let alone have scalability issues. Lets me mention some key points, explaining, why SNMP is not up to the mark for our modern networks.
+
+
+- Upon performing a _GetBulk_ against a network device, _GetNext_ operation fetches all the columns of a given table. Device returns as many columns as can fit into a packet. After the first _GetBulk_ packet is filled up, the SNMP agent on the router
+continues its lexicographical walk and fills up another packet.
+When the poller detects that the last received OID is not from the next table, it stops sending _GetBulk_ operations.
+Well, this is too bad on the device/network resources.
+- When the device is being polled from multiple NMS, things get worse as there is no way to synchronize polling, as result, the device has to process each request individually.
+- Does not provide Single model for configuration and monitoring.
+- No relation between data (only textual reference exists in MIBS)
+
+
+On the other hand, Model-driven Telemetry addresses these concerns. It provides a single YANG-based model/schema for the configuration and monitoring.
+Telemetry is way more resource efficeint and creates less mess on the wire.
+The device fetches the data in a single dip from itself, moreover, if there are multiple collectors, a network device can do one of the fundamental jobs i.e replicate the packet,as metrics are being pushed instead of being polled asynchronously.
+
+
 ## Setup gRPC Dial-out Telemetry Using TIG Stack 
 
 **Telegraf**: is an server agent to help collect metrics, we are using its [cisco_telemetry_mdt](https://github.com/influxdata/telegraf/blob/release-1.23/plugins/inputs/cisco_telemetry_mdt/README.md)

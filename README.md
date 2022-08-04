@@ -32,11 +32,11 @@ The device fetches the data in a single dip from itself, moreover, if there are 
 
 ## Configuring gRPC Dial-out Telemetry on Cisco IOSXE
 
-Step1: Select enconding scheme
-Step2: What to push ? here in example i have choose boot-time from open-config-system YANG model 
-Step3: Select streaming method
-Step4: When to push [periodic/on-change]
-Step5: Collector Address and transport
+1. Select enconding scheme
+2. What to push ? here in example i have choose boot-time from open-config-system YANG model 
+3. Select streaming method
+4. When to push [periodic/on-change]
+5. Collector Address and transport
 
 ```
 configure terminal

@@ -53,3 +53,11 @@ telemetry ietf subscription 108
  stream yang-push
  update-policy periodic 5000
  receiver ip address 192.168.100.242 57555 protocol grpc-tcp
+
+
+telemetry ietf subscription 109
+  encoding encode-kvgpb
+  filter xpath /cdp-ios-xe-oper:cdp-neighbor-details/cdp-neighbor-detail
+  stream yang-push
+  update-policy on-change
+  receiver ip address 192.168.100.242 57555 protocol grpc-tcp
